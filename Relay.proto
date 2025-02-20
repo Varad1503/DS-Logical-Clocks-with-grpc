@@ -1,0 +1,37 @@
+syntax = "proto3";
+
+service relay{
+    rpc Deliver(Msg_request) returns (Msg_response) {}
+	rpc Cast(branch_comm) returns (branch_res) {}
+}
+
+message Msg_request {
+    int32 id = 1;
+    string interface = 2;
+    int32 money = 4;
+    int32 clock = 5;
+}
+
+message branch_comm {
+    int32 id = 1;
+    string interface = 2;
+    int32 money = 4;
+    int32 clock = 5;
+    int32 branch = 6;
+}
+
+message branch_res{
+    int32 id = 1;
+    string interface = 2;
+    int32 money = 4;
+    int32 clock = 5;
+    int32 branch = 6;
+}
+
+message Msg_response {
+    int32 id = 1;
+    string interface = 2;
+    string result = 3;
+    int32 money = 4;
+    int32 clock = 5;
+}
